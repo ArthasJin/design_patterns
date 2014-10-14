@@ -13,9 +13,11 @@ set(pattern-include
 ## src
 set(pattern-src
     src/main.cpp
+    src/singleton.cpp
     src/test_factory.cpp
     src/test_abs_factory.cpp
     src/test_builder.cpp
+    src/test_singleton.cpp
 )
 
 ## cflags

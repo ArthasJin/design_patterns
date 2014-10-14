@@ -7,12 +7,16 @@ using namespace std;
 
 class Product {
 private:
-    string m_name;
+    list<string> m_part_list;
 public:
     Product() {}
 
-    string& getName() {
-        return m_name;
+    list<string>& getPartList() {
+        return m_part_list;
+    }
+
+    void addPart(const string &part) {
+        m_part_list.push_back(part);
     }
 };
 
@@ -22,18 +26,60 @@ protected:
 public:
     AbsBuilder() {}
 
-    virtual void buildPart() = 0;
+    virtual void buildPartA() = 0;
 
-    virtual Product& getProduct() = 0;
+    virtual void buildPartB() = 0;
+
+    virtual void buildPartC() = 0;
+
+    virtual Product& getProduct() {
+        return m_product;
+    }
 };
 
-class ConcreteBuilder : public AbsBuilder {
+class ConcreteBuilderA : public AbsBuilder {
 public:
-    ConcreteBuilder() {}
+    ConcreteBuilderA() {}
+
+    virtual void buildPartA() {
+        m_product.addPart("PartA from ConcreteBuilderA");
+    }
+
+    virtual void buildPartB() {
+        m_product.addPart("PartB from ConcreteBuilderA");
+    }
+
+    virtual void buildPartC() {
+        m_product.addPart("PartC from ConcreteBuilderA");
+    }
+};
+
+class ConcreteBuilderB : public AbsBuilder {
+public:
+    ConcreteBuilderB() {}
+
+    virtual void buildPartA() {
+        m_product.addPart("PartA from ConcreteBuilderB");
+    }
+
+    virtual void buildPartB() {
+        m_product.addPart("PartB from ConcreteBuilderB");
+    }
+
+    virtual void buildPartC() {
+        m_product.addPart("PartC from ConcreteBuilderB");
+    }
 };
 
 class Director {
+public:
+    Director() {}
 
+    void construct(AbsBuilder &builder) {
+        builder.buildPartA();
+        builder.buildPartB();
+        builder.buildPartC();
+    }
 };
 
 #endif // BUILDER_H

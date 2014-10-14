@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
 
 #include "abs_factory.h"
 #include "adapter.h"
