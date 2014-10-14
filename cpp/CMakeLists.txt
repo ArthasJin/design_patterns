@@ -18,6 +18,8 @@ set(pattern-src
     src/test_abs_factory.cpp
     src/test_builder.cpp
     src/test_singleton.cpp
+    src/test_facade.cpp
+    src/test_template.cpp
 )
 
 ## cflags
