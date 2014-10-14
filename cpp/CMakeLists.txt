@@ -20,6 +20,8 @@ set(pattern-src
     src/test_singleton.cpp
     src/test_facade.cpp
     src/test_template.cpp
+    src/test_strategy.cpp
+    src/test_proxy.cpp
 )
 
 ## cflags
